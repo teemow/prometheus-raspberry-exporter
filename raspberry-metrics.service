@@ -1,0 +1,6 @@
+[Unit]
+Description=Collect Raspberry Pi metrics for Prometheus
+
+[Service]
+Type=oneshot
+ExecStart=/home/teemow/raspberry-metrics.sh
