@@ -3,4 +3,4 @@ Description=Collect Raspberry Pi metrics for Prometheus
 
 [Service]
 Type=oneshot
-ExecStart=/home/teemow/raspberry-metrics.sh
+ExecStart=/usr/local/bin/raspberry_exporter
