@@ -24,14 +24,14 @@ do
 done
 
 for id in arm core h264 isp v3d uart pwm emmc pixel vec hdmi dpi; do
-	echo "rpi_freq{device=\"$id\"} $($VCGEN measure_clock $id | awk '{split($0,a,"="); print a[2]}')" >> $TEMPFILE
+	echo "rpi_freq{device=\"$id\"} $($VCGEN measure_clock $id | cut -d '=' -f 2)" >> $TEMPFILE
 done
 
 for id in core sdram_c sdram_i sdram_p; do
-	echo "rpi_volt{device=\"$id\"} $($VCGEN measure_volts $id | awk '{split($0,a,"="); print a[2]}' | sed 's/V$//')" >> $TEMPFILE
+	echo "rpi_volt{device=\"$id\"} $($VCGEN measure_volts $id | cut -d '=' -f 2 | sed 's/V$//')" >> $TEMPFILE
 done
 
 for id in arm gpu; do
-	echo "rpi_mem{device=\"$id\"} $($VCGEN get_mem $id | awk '{split($0,a,"="); print a[2]}' | sed 's/M$//')" >> $TEMPFILE
+	echo "rpi_mem{device=\"$id\"} $($VCGEN get_mem $id | cut -d '=' -f 2 | sed 's/M$//')" >> $TEMPFILE
 done
 mv $TEMPFILE $TEXTFILE
