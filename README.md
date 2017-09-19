@@ -25,7 +25,8 @@ Make sure your node exporter uses `textfile` in `--collectors.enabled` and add t
 ## Example queries
 
 ```
-CPU_Temperature{job="node"}
-Freq_arm{job="node"}
-Volt_core{job="node"}
+rpi_temperature{job="node"}
+rpi_freq{job="node",device="arm"}
+rpi_volt{job="node",device="core"}
+rpi_mem{job="node",device="arm"}
 ```
