@@ -12,7 +12,7 @@ cat /dev/null > $TEMPFILE
 
 for sensor in `ls /sys/class/thermal/`;
 do
-	TEMP=$(awk '{printf "%.2f", $1/1000}' /sys/class/thermal/$sensor/temp)
+	TEMP=$(awk '{printf "%.3f", $1/1000}' /sys/class/thermal/$sensor/temp)
 	CHIP=$(cat /sys/class/thermal/$sensor/type)
 
 	if [ -z "$TEMP" ];
