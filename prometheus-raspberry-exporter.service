@@ -3,4 +3,6 @@ Description=Collect Raspberry Pi metrics for Prometheus
 
 [Service]
 Type=oneshot
+User=prometheus
+Environment=PROM_FILE_PATH=/var/lib/prometheus/node-exporter/raspberry_exporter.prom
 ExecStart=/usr/local/bin/raspberry_exporter
