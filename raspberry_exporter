@@ -34,4 +34,5 @@ done
 for id in arm gpu; do
 	echo "rpi_mem{device=\"$id\"} $($VCGEN get_mem $id | cut -d '=' -f 2 | sed 's/M$//')" >> $TEMPFILE
 done
+chown prometheus:prometheus $TEMPFILE
 mv $TEMPFILE $TEXTFILE
