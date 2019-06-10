@@ -2,11 +2,11 @@
 
 set -eu
 
-VCGEN=/opt/vc/bin/vcgencmd
-TEXTFILE=/var/lib/node_exporter/textfile_collector/raspberry-metrics.prom
+VCGEN=${VCGEN_PATH:-/opt/vc/bin/vcgencmd}
+TEXTFILE=${PROM_FILE_PATH:-var/lib/node_exporter/textfile_collector/raspberry-metrics.prom}
 TEMPFILE=$TEXTFILE.$$
 
-mkdir -p /var/lib/node_exporter/textfile_collector/
+mkdir -p $(dirname $TEXTFILE)
 
 cat /dev/null > $TEMPFILE
 
